@@ -1,59 +1,688 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevCenter SOP Suites - Sankhya</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankhya Official Pack - Soluções sob medida para sua liberdade de evoluir</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 150, 255, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(0, 150, 255, 0.6); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "◆";
+            color: #0096ff;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #4a5568 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #0096ff 0%, #00b4d8 100%);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.4);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Introduction Section */
+        .intro {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .intro-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Suite Sections */
+        .suite {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .suite:nth-child(even) {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .suite-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .suite-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .suite-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .suite h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .suite-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideInRight 1s ease-out;
+            border-left: 4px solid #0096ff;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .module-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .suite-cta {
+            text-align: center;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .suite-cta h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .suite-cta p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Color variations for different suites */
+        .logistics .suite-icon { color: #3182ce; }
+        .logistics .module-card { border-left-color: #3182ce; }
+        .logistics .suite-cta { background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%); }
+
+        .commerce .suite-icon { color: #38a169; }
+        .commerce .module-card { border-left-color: #38a169; }
+        .commerce .suite-cta { background: linear-gradient(135deg, #276749 0%, #38a169 100%); }
+
+        .services .suite-icon { color: #d69e2e; }
+        .services .module-card { border-left-color: #d69e2e; }
+        .services .suite-cta { background: linear-gradient(135deg, #b7791f 0%, #d69e2e 100%); }
+
+        .integrators .suite-icon { color: #dd6b20; }
+        .integrators .module-card { border-left-color: #dd6b20; }
+        .integrators .suite-cta { background: linear-gradient(135deg, #c05621 0%, #dd6b20 100%); }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .final-cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: 2px solid #0096ff;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-secondary:hover {
+            background: #0096ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            padding: 3rem 0 1rem;
+            color: #fff;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0096ff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #0096ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #718096;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .suite h3 {
+                font-size: 1.8rem;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-[#003366] text-white p-4 flex justify-between items-center">
-    <div class="text-2xl font-bold">Sankhya</div>
-    <nav class="space-x-4">
-      <a href="#" class="hover:underline">Soluções</a>
-      <a href="#" class="hover:underline">SOP</a>
-      <a href="#" class="hover:underline">Contato</a>
-    </nav>
-  </header>
-  <section class="bg-[#003366] text-white py-16 text-center animate-pulse">
-    <h1 class="text-4xl font-bold mb-4">Soluções sob medida para sua liberdade de evoluir!</h1>
-    <p class="text-lg mb-6">Acelere a eficiência do seu EIP Sankhya com suites exclusivas, escaláveis e seguras.</p>
-    <button class="bg-yellow-400 text-black px-6 py-2 rounded hover:scale-105 transition">Conheça Agora</button>
-  </section>
-  <section class="max-w-7xl mx-auto py-12 px-4 space-y-8">
-    <div class="bg-white p-6 rounded shadow animate-fade-in">
-      <h3 class="text-2xl font-bold text-[#003366] mb-4"><i class="fas fa-truck mr-2"></i>Suíte de Logística</h3>
-      <ul class="space-y-2 list-disc pl-6">
-        <li>SOP TMS, SOP Auditoria de Fretes, SOP Gestão de Frotas, SOP ScanBot</li>
-      </ul>
-    </div>
-    <div class="bg-white p-6 rounded shadow animate-fade-in">
-      <h3 class="text-2xl font-bold text-[#003366] mb-4"><i class="fas fa-globe mr-2"></i>Suíte de Comércio Exterior</h3>
-      <ul class="space-y-2 list-disc pl-6">
-        <li>SOP ImpEx com controles de importação, exportação e contratos cambiais</li>
-      </ul>
-    </div>
-    <div class="bg-white p-6 rounded shadow animate-fade-in">
-      <h3 class="text-2xl font-bold text-[#003366] mb-4"><i class="fas fa-cogs mr-2"></i>Nova Suíte de Serviços</h3>
-      <ul class="space-y-2 list-disc pl-6">
-        <li>SOP Locação de Bens, SOP Assistência Técnica, SOP DistMed</li>
-      </ul>
-    </div>
-    <div class="bg-white p-6 rounded shadow animate-fade-in">
-      <h3 class="text-2xl font-bold text-[#003366] mb-4"><i class="fas fa-plug mr-2"></i>Suíte de Integradores</h3>
-      <ul class="space-y-2 list-disc pl-6">
-        <li>SOP Web Receitas, SOP Bionexo e Apoio, SOP ConLicitação e LicitaSys, SOP HubSoft, SOP Multi CTe, SOP Transfeera</li>
-      </ul>
-    </div>
-    <div class="bg-[#003366] text-white p-8 rounded text-center animate-bounce">
-      <h3 class="text-3xl font-bold mb-4">Pronto para transformar o seu EIP?</h3>
-      <p class="mb-6">Descubra como o SOP pode evoluir junto com a sua operação.</p>
-      <button class="bg-yellow-400 text-black px-6 py-2 rounded hover:scale-105 transition">Fale com um Especialista</button>
-    </div>
-  </section>
-  <footer class="bg-[#003366] text-white p-6 text-center text-sm">
-    <p>&copy; 2025 Sankhya. Todos os direitos reservados.</p>
-  </footer>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Sankhya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Soluções sob medida para sua liberdade de evoluir!</h1>
+            <p>Acelere a eficiência do seu EIP Sankhya com suites exclusivas, escaláveis e seguras.</p>
+            <a href="#intro" class="cta-primary">Conheça Agora</a>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="intro" class="intro">
+        <div class="intro-content">
+            <h2>Conheça nossos SOPs</h2>
+            <p>O <strong>Sankhya Official Pack (SOP)</strong> foi criado para potencializar a sua operação, seguindo os mais altos padrões de qualidade, segurança e confiabilidade. Nosso time transforma ideias em soluções para o seu sucesso.</p>
+        </div>
+    </section>
+
+    <!-- Suíte de Logística -->
+    <section class="suite logistics animate-on-scroll">
+        <div class="suite-content">
+            <div class="suite-header">
+                <div class="suite-icon">🚚</div>
+                <h3>Suíte de Logística</h3>
+                <p class="suite-description">Otimize sua cadeia logística com soluções integradas para transporte, auditoria e gestão de frotas.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>SOP TMS</h4>
+                    <p>Processo de geração de viagens a partir da ordem de carga, com importação de NF-es, integração de averbação, geração do CIOT e muito mais.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Auditoria de Fretes</h4>
+                    <p>Auditoria automatizada do fechamento de viagens e checklist de entregas.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Gestão de Frotas</h4>
+                    <p>Gestão completa de abastecimento, pneus, manutenção e multas.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP ScanBot</h4>
+                    <p>Cadastro ágil e automatizado de parceiros via WhatsApp.</p>
+                </div>
+            </div>
+            
+            <div class="suite-cta">
+                <h4>Transforme sua logística em vantagem competitiva!</h4>
+                <p>Reduza custos, aumente eficiência e ganhe controle total sobre suas operações.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suíte de Comércio Exterior -->
+    <section class="suite commerce animate-on-scroll">
+        <div class="suite-content">
+            <div class="suite-header">
+                <div class="suite-icon">🌍</div>
+                <h3>Suíte de Comércio Exterior</h3>
+                <p class="suite-description">Domine o mercado global com controle total de importações e exportações.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>SOP ImpEx</h4>
+                    <p>Controle de ponta a ponta de operações de importação, exportação e contratos cambiais. Automatização de DI, geração de proforma invoice, integração completa e dashboards de follow-up.</p>
+                </div>
+            </div>
+            
+            <div class="suite-cta">
+                <h4>Expanda seus negócios para o mundo!</h4>
+                <p>Simplifique processos complexos e acelere suas operações internacionais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suíte de Serviços -->
+    <section class="suite services animate-on-scroll">
+        <div class="suite-content">
+            <div class="suite-header">
+                <div class="suite-icon">🛠️</div>
+                <h3>Nova Suíte de Serviços</h3>
+                <p class="suite-description">Revolucione sua prestação de serviços com automação inteligente e gestão completa.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>SOP Locação de Bens</h4>
+                    <p>Jornada completa de locação com contratos automáticos, controle de faturamento e gestão do ciclo do imobilizado.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Assistência Técnica</h4>
+                    <p>Atendimento ágil e fluído, do chamado ao encerramento.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP DistMed</h4>
+                    <p>Focado no setor farmacêutico, reúne gestão de tabelas de preço, integrações via Order Link e maior flexibilidade comercial.</p>
+                </div>
+            </div>
+            
+            <div class="suite-cta">
+                <h4>Eleve o padrão dos seus serviços!</h4>
+                <p>Automatize processos e encante clientes com eficiência e qualidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suíte de Integradores -->
+    <section class="suite integrators animate-on-scroll">
+        <div class="suite-content">
+            <div class="suite-header">
+                <div class="suite-icon">🔗</div>
+                <h3>Suíte de Integradores</h3>
+                <p class="suite-description">Conecte seu ERP ao ecossistema digital com integrações poderosas e automatizações inteligentes.</p>
+            </div>
+            
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h4>SOP Web Receitas</h4>
+                    <p>Emissão automatizada de receituário agronômico pós-NFe, totalmente conforme a legislação.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Bionexo e Apoio</h4>
+                    <p>Oportunidade de vendas com busca e respostas automáticas de cotações.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP ConLicitação e LicitaSys</h4>
+                    <p>Gestão completa do processo licitatório, incluindo simulações e empenhos.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP HubSoft</h4>
+                    <p>Sincronização das plataformas de estoque, faturamento e comodato.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Multi CTe</h4>
+                    <p>Integração de documentos fiscais CT-e, MDF-e e NFS-e.</p>
+                </div>
+                <div class="module-card">
+                    <h4>SOP Transfeera</h4>
+                    <p>Integração de meios de pagamento com o Sankhya Om, incluindo Pix, boletos e taxas.</p>
+                </div>
+            </div>
+            
+            <div class="suite-cta">
+                <h4>Conecte tudo e automatize mais!</h4>
+                <p>Integre seu ERP com o mundo digital e multiplique sua produtividade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Pronto para transformar o seu EIP?</h2>
+            <p>Descubra como o SOP pode evoluir junto com a sua operação!</p>
+            <a href="#" class="cta-secondary">Fale com um Especialista</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Soluções</a></li>
+                    <li><a href="#">Suporte</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="tel:08009400750">0800 940 0750</a></li>
+                    <li><a href="mailto:contato@sankhya.com.br">contato@sankhya.com.br</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sankhya. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Dynamic header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 54, 93, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a365d 0%, #2c5282 100%)';
+            }
+        });
+    </script>
 </body>
 </html>
