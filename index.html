@@ -244,6 +244,7 @@
             transition: all 0.3s ease;
             animation: slideInRight 1s ease-out;
             border-left: 4px solid #0096ff;
+            position: relative;
         }
 
         .module-card:hover {
@@ -261,6 +262,25 @@
         .module-card p {
             color: #4a5568;
             line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .price-link {
+            background: #6b73ff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .price-link:hover {
+            background: #5a61e6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 115, 255, 0.4);
         }
 
         .suite-cta {
@@ -410,6 +430,90 @@
             color: #718096;
         }
 
+        /* Popup Modal */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .popup-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #718096;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .popup-close:hover {
+            color: #1a365d;
+        }
+
+        .pricing-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-item {
+            text-align: center;
+        }
+
+        .pricing-label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .pricing-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .pricing-value.price {
+            color: #0096ff;
+            font-size: 1.2rem;
+        }
+
+        .pricing-value.time {
+            color: #38a169;
+        }
+
+        .pricing-value.mrr {
+            color: #d69e2e;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -425,6 +529,10 @@
             }
             
             .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-info {
                 grid-template-columns: 1fr;
             }
         }
@@ -480,22 +588,27 @@
                 <div class="module-card">
                     <h4>SOP TMS</h4>
                     <p>Processo de geração de viagens a partir da ordem de carga, com importação de NF-es, integração de averbação, geração do CIOT e muito mais.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - TMS')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Auditoria de Fretes</h4>
                     <p>Auditoria automatizada do fechamento de viagens e checklist de entregas.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Auditoria de Fretes')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Gestão de Frotas</h4>
                     <p>Gestão completa de abastecimento, pneus, manutenção e multas.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Gestão de Frotas')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP ScanBot</h4>
                     <p>Cadastro ágil e automatizado de parceiros via WhatsApp.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - YMS Portaria')">Ver Preços</a>
                 </div>
                 <div class="module-card" style="grid-column: span 2;">
                     <h4>App Logística</h4>
                     <p>Gestão de abastecimento, checklist de manutenção e gestão de pneus com a mobilidade que precisa!</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - App')">Ver Preços</a>
                 </div>
             </div>
             
@@ -519,6 +632,7 @@
                 <div class="module-card">
                     <h4>SOP ImpEx</h4>
                     <p>Controle de ponta a ponta de operações de importação, exportação e contratos cambiais. Automatização de DI, geração de proforma invoice, integração completa e dashboards de follow-up.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Comércio Exterior - Importação')">Ver Preços</a>
                 </div>
             </div>
             
@@ -542,14 +656,17 @@
                 <div class="module-card">
                     <h4>SOP Locação de Bens</h4>
                     <p>Jornada completa de locação com contratos automáticos, controle de faturamento e gestão do ciclo do imobilizado.</p>
+                    <a href="#" class="price-link" onclick="openPopup('Locação de Bens')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Assistência Técnica</h4>
                     <p>Atendimento ágil e fluído, do chamado ao encerramento.</p>
+                    <a href="#" class="price-link" onclick="openPopup('Controle de Licitação')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP DistMed</h4>
                     <p>Focado no setor farmacêutico, reúne gestão de tabelas de preço, integrações via Order Link e maior flexibilidade comercial.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Ficha de Cheques')">Ver Preços</a>
                 </div>
             </div>
             
@@ -573,26 +690,32 @@
                 <div class="module-card">
                     <h4>SOP Web Receitas</h4>
                     <p>Emissão automatizada de receituário agronômico pós-NFe, totalmente conforme a legislação.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Web Receita')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Bionexo e Apoio</h4>
                     <p>Oportunidade de vendas com busca e respostas automáticas de cotações.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Bionexo')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP ConLicitação e LicitaSys</h4>
                     <p>Gestão completa do processo licitatório, incluindo simulações e empenhos.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Docusign')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP HubSoft</h4>
                     <p>Sincronização das plataformas de estoque, faturamento e comodato.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Multi CTe')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Multi CTe</h4>
                     <p>Integração de documentos fiscais CT-e, MDF-e e NFS-e.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Multi CTe')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Transfeera</h4>
                     <p>Integração de meios de pagamento com o Sankhya Om, incluindo Pix, boletos e taxas.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Transfeera')">Ver Preços</a>
                 </div>
             </div>
             
@@ -611,48 +734,31 @@
         </div>
     </section>
 
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Dynamic header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 54, 93, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1a365d 0%, #2c5282 100%)';
-            }
-        });
-    </script>
-</body>
-</html>
+    <!-- Popup Modal -->
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup()">&times;</span>
+            <h3 id="popup-title" class="popup-header"></h3>
+            <div class="pricing-info">
+                <div class="pricing-item">
+                    <div class="pricing-label">Setup</div>
+                    <div id="setup-price" class="pricing-value price"></div>
+                </div>
+                <div class="pricing-item">
+                    <div class="pricing-label">Horas Implantação</div>
+                    <div id="impl-hours" class="pricing-value time"></div>
+                </div>
+                <div class="pricing-item">
+                    <div class="pricing-label">Valor Implantação</div>
+                    <div id="impl-price" class="pricing-value price"></div>
+                </div>
+                <div class="pricing-item">
+                    <div class="pricing-label">Horas GP</div>
+                    <div id="gp-hours" class="pricing-value time"></div>
+                </div>
+                <div class="pricing-item">
+                    <div class="pricing-label">Valor GP</div>
+                    <div id="gp-price" class="pricing-value price"></div>
+                </div>
+                <div class="pricing-item">
+                    <div class="pricing-label">M
