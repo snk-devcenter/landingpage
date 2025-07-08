@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -35,6 +37,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -42,18 +45,39 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 150, 255, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(0, 150, 255, 0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(0, 150, 255, 0.6);
+            }
         }
 
         /* Header */
@@ -303,21 +327,53 @@
         }
 
         /* Color variations for different suites */
-        .logistics .suite-icon { color: #3182ce; }
-        .logistics .module-card { border-left-color: #3182ce; }
-        .logistics .suite-cta { background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%); }
+        .logistics .suite-icon {
+            color: #3182ce;
+        }
 
-        .commerce .suite-icon { color: #38a169; }
-        .commerce .module-card { border-left-color: #38a169; }
-        .commerce .suite-cta { background: linear-gradient(135deg, #276749 0%, #38a169 100%); }
+        .logistics .module-card {
+            border-left-color: #3182ce;
+        }
 
-        .services .suite-icon { color: #d69e2e; }
-        .services .module-card { border-left-color: #d69e2e; }
-        .services .suite-cta { background: linear-gradient(135deg, #b7791f 0%, #d69e2e 100%); }
+        .logistics .suite-cta {
+            background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+        }
 
-        .integrators .suite-icon { color: #dd6b20; }
-        .integrators .module-card { border-left-color: #dd6b20; }
-        .integrators .suite-cta { background: linear-gradient(135deg, #c05621 0%, #dd6b20 100%); }
+        .commerce .suite-icon {
+            color: #38a169;
+        }
+
+        .commerce .module-card {
+            border-left-color: #38a169;
+        }
+
+        .commerce .suite-cta {
+            background: linear-gradient(135deg, #276749 0%, #38a169 100%);
+        }
+
+        .services .suite-icon {
+            color: #d69e2e;
+        }
+
+        .services .module-card {
+            border-left-color: #d69e2e;
+        }
+
+        .services .suite-cta {
+            background: linear-gradient(135deg, #b7791f 0%, #d69e2e 100%);
+        }
+
+        .integrators .suite-icon {
+            color: #dd6b20;
+        }
+
+        .integrators .module-card {
+            border-left-color: #dd6b20;
+        }
+
+        .integrators .suite-cta {
+            background: linear-gradient(135deg, #c05621 0%, #dd6b20 100%);
+        }
 
         /* Final CTA */
         .final-cta {
@@ -381,6 +437,35 @@
             background: #0096ff;
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0, 150, 255, 0.4);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn::before {
+            content: "📱";
+            font-size: 1.2rem;
         }
 
         /* Footer */
@@ -455,7 +540,7 @@
         }
 
         .popup-header {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #1a365d;
             margin-bottom: 1.5rem;
@@ -519,15 +604,15 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero p {
                 font-size: 1.1rem;
             }
-            
+
             .suite h3 {
                 font-size: 1.8rem;
             }
-            
+
             .modules-grid {
                 grid-template-columns: 1fr;
             }
@@ -550,11 +635,14 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <div class="header-content">
-            <img width="199" height="43" src="https://media.sankhya.com.br/wp-content/uploads/2022/07/logosankhya_white.webp" class="attachment-full size-full wp-image-45105" alt="">
+            <img width="199" height="43"
+                src="https://media.sankhya.com.br/wp-content/uploads/2022/07/logosankhya_white.webp"
+                class="attachment-full size-full wp-image-45105" alt="">
         </div>
     </header>
 
@@ -571,7 +659,9 @@
     <section id="intro" class="intro">
         <div class="intro-content">
             <h2>Conheça nossos SOPs</h2>
-            <p>O <strong>Sankhya Official Pack (SOP)</strong> foi criado para potencializar a sua operação, seguindo os mais altos padrões de qualidade, segurança e confiabilidade. Nosso time transforma ideias em soluções para o sucesso do seu cliente.</p>
+            <p>O <strong>Sankhya Official Pack (SOP)</strong> foi criado para potencializar a sua operação, seguindo os
+                mais altos padrões de qualidade, segurança e confiabilidade. Nosso time transforma ideias em soluções
+                para o sucesso do seu cliente.</p>
         </div>
     </section>
 
@@ -581,37 +671,42 @@
             <div class="suite-header">
                 <div class="suite-icon">🚚</div>
                 <h3>Suíte de Logística</h3>
-                <p class="suite-description">Otimize sua cadeia logística com soluções integradas para transporte, auditoria e gestão de frotas.</p>
+                <p class="suite-description">Otimize sua cadeia logística com soluções integradas para transporte,
+                    auditoria e gestão de frotas.</p>
             </div>
-            
+
             <div class="modules-grid">
                 <div class="module-card">
                     <h4>SOP TMS</h4>
-                    <p>Processo de geração de viagens a partir da ordem de carga, com importação de NF-es, integração de averbação, geração do CIOT e muito mais.</p>
+                    <p>Processo de geração de viagens a partir da ordem de carga, com importação de NF-es, integração de
+                        averbação, geração do CIOT e muito mais.</p>
                     <a href="#" class="price-link" onclick="openPopup('SOP Logística - TMS')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Auditoria de Fretes</h4>
                     <p>Auditoria automatizada do fechamento de viagens e checklist de entregas.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Auditoria de Fretes')">Ver Preços</a>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Auditoria de Fretes')">Ver
+                        Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Gestão de Frotas</h4>
                     <p>Gestão completa de abastecimento, pneus, manutenção e multas.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Gestão de Frotas')">Ver Preços</a>
+                    <a href="#" class="price-link" onclick="openPopup('SOP Logística - Gestão de Frotas')">Ver
+                        Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP ScanBot</h4>
-                    <p>Cadastro ágil e automatizado de parceiros via WhatsApp.</p>
+                    <p>Cadastro ágil e automatizado de Motoristas e Veículos via WhatsApp.</p>
                     <a href="#" class="price-link" onclick="openPopup('SOP Logística - YMS Portaria')">Ver Preços</a>
                 </div>
                 <div class="module-card" style="grid-column: span 2;">
                     <h4>App Logística</h4>
-                    <p>Gestão de abastecimento, checklist de manutenção e gestão de pneus com a mobilidade que precisa!</p>
+                    <p>Gestão de abastecimento, checklist de manutenção e gestão de pneus com a mobilidade que precisa!
+                    </p>
                     <a href="#" class="price-link" onclick="openPopup('SOP Logística - App')">Ver Preços</a>
                 </div>
             </div>
-            
+
             <div class="suite-cta">
                 <h4>Transforme sua logística em vantagem competitiva!</h4>
                 <p>Reduza custos, aumente eficiência e ganhe controle total sobre suas operações.</p>
@@ -625,17 +720,25 @@
             <div class="suite-header">
                 <div class="suite-icon">🌍</div>
                 <h3>Suíte de Comércio Exterior</h3>
-                <p class="suite-description">Domine o mercado global com controle total de importações e exportações.</p>
+                <p class="suite-description">Domine o mercado global com controle total de importações e exportações.
+                </p>
             </div>
-            
+
             <div class="modules-grid">
                 <div class="module-card">
-                    <h4>SOP ImpEx</h4>
-                    <p>Controle de ponta a ponta de operações de importação, exportação e contratos cambiais. Automatização de DI, geração de proforma invoice, integração completa e dashboards de follow-up.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Comércio Exterior - Importação')">Ver Preços</a>
+                    <h4>SOP ImpEx - Importação</h4>
+                    <p>Fluxo completo, automatização da DI, integração com contratos cambiais, dashboard de follow-up,
+                        antidumping, tratamento fiscal e regimes especiais. (+ Contratos Cambiais)</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP ImpEx - Importação')">Ver Preços</a>
+                </div>
+                <div class="module-card">
+                    <h4>SOP ImpEx - Exportação</h4>
+                    <p>Geração de proforma invoice, pedido de venda integrado e contratos cambiais. (+ Contratos
+                        Cambiais)</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP ImpEx - Exportação')">Ver Preços</a>
                 </div>
             </div>
-            
+
             <div class="suite-cta">
                 <h4>Expanda seus negócios para o mundo!</h4>
                 <p>Simplifique processos complexos e acelere suas operações internacionais.</p>
@@ -649,27 +752,30 @@
             <div class="suite-header">
                 <div class="suite-icon">🛠️</div>
                 <h3>Nova Suíte de Serviços</h3>
-                <p class="suite-description">Revolucione sua prestação de serviços com automação inteligente e gestão completa.</p>
+                <p class="suite-description">Revolucione sua prestação de serviços com automação inteligente e gestão
+                    completa.</p>
             </div>
-            
+
             <div class="modules-grid">
                 <div class="module-card">
                     <h4>SOP Locação de Bens</h4>
-                    <p>Jornada completa de locação com contratos automáticos, controle de faturamento e gestão do ciclo do imobilizado.</p>
+                    <p>Jornada completa de locação com contratos automáticos, controle de faturamento e gestão do ciclo
+                        do imobilizado.</p>
                     <a href="#" class="price-link" onclick="openPopup('Locação de Bens')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Assistência Técnica</h4>
                     <p>Atendimento ágil e fluído, do chamado ao encerramento.</p>
-                    <a href="#" class="price-link" onclick="openPopup('Controle de Licitação')">Ver Preços</a>
+                    <a href="#" class="price-link" onclick="openPopup('Assistência Técnica')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP DistMed</h4>
-                    <p>Focado no setor farmacêutico, reúne gestão de tabelas de preço, integrações via Order Link e maior flexibilidade comercial.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Ficha de Cheques')">Ver Preços</a>
+                    <p>Focado no setor farmacêutico, reúne gestão de tabelas de preço, integrações via Order Link,
+                        políticas comerciais e saldo Flex.</p>
+                    <a href="#" class="price-link" onclick="openPopup('SOP DistMed')">Ver Preços</a>
                 </div>
             </div>
-            
+
             <div class="suite-cta">
                 <h4>Eleve o padrão dos seus serviços!</h4>
                 <p>Automatize processos e encante clientes com eficiência e qualidade.</p>
@@ -683,9 +789,10 @@
             <div class="suite-header">
                 <div class="suite-icon">🔗</div>
                 <h3>Suíte de Integradores</h3>
-                <p class="suite-description">Conecte seu ERP ao ecossistema digital com integrações poderosas e automatizações inteligentes.</p>
+                <p class="suite-description">Conecte seu ERP ao ecossistema digital com integrações poderosas e
+                    automatizações inteligentes.</p>
             </div>
-            
+
             <div class="modules-grid">
                 <div class="module-card">
                     <h4>SOP Web Receitas</h4>
@@ -700,12 +807,12 @@
                 <div class="module-card">
                     <h4>SOP ConLicitação e LicitaSys</h4>
                     <p>Gestão completa do processo licitatório, incluindo simulações e empenhos.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Docusign')">Ver Preços</a>
+                    <a href="#" class="price-link" onclick="openPopup('SOP ConLicitação e LicitaSys')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP HubSoft</h4>
                     <p>Sincronização das plataformas de estoque, faturamento e comodato.</p>
-                    <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Multi CTe')">Ver Preços</a>
+                    <a href="#" class="price-link" onclick="openPopup('SOP HubSoft')">Ver Preços</a>
                 </div>
                 <div class="module-card">
                     <h4>SOP Multi CTe</h4>
@@ -718,7 +825,7 @@
                     <a href="#" class="price-link" onclick="openPopup('SOP Integrador - Transfeera')">Ver Preços</a>
                 </div>
             </div>
-            
+
             <div class="suite-cta">
                 <h4>Conecte tudo e automatize mais!</h4>
                 <p>Integre seu ERP com o mundo digital e multiplique sua produtividade.</p>
@@ -731,6 +838,7 @@
         <div class="final-cta-content">
             <h2>Pronto para transformar o EIP?</h2>
             <p>Descubra como o SOP pode evoluir a operação do seu cliente!</p>
+            <a href="https://wa.me/5534998262346" target="_blank" class="whatsapp-btn">Fale Conosco no WhatsApp</a>
         </div>
     </section>
 
@@ -744,18 +852,18 @@
                     <div class="pricing-label">Setup</div>
                     <div id="setup-price" class="pricing-value price"></div>
                 </div>
-                <!-- <div class="pricing-item">
+                <div class="pricing-item" style="display: none;">
                     <div class="pricing-label">Horas Implantação</div>
                     <div id="impl-hours" class="pricing-value time"></div>
-                </div> -->
+                </div>
                 <div class="pricing-item">
                     <div class="pricing-label">Valor Implantação</div>
                     <div id="impl-price" class="pricing-value price"></div>
                 </div>
-                <!-- <div class="pricing-item">
+                <div class="pricing-item" style="display: none;">
                     <div class="pricing-label">Horas GP</div>
                     <div id="gp-hours" class="pricing-value time"></div>
-                </div> -->
+                </div>
                 <div class="pricing-item">
                     <div class="pricing-label">Valor GP</div>
                     <div id="gp-price" class="pricing-value price"></div>
@@ -780,14 +888,30 @@
                 mrr: 'R$ 3.000,00'
             },
             'Locação de Bens': {
-                setup: 'R$ 6.000,00',
+                setup: 'sob-consulta',
                 implHours: '120:00:00',
-                implPrice: 'R$ 24.000,00',
+                implPrice: 'sob-consulta',
                 gpHours: '24:00:00',
-                gpPrice: 'R$ 4.800,00',
-                mrr: 'R$ 3.500,00'
+                gpPrice: 'sob-consulta',
+                mrr: 'sob-consulta'
             },
-            'SOP Comércio Exterior - Exportação': {
+            'Assistência Técnica': {
+                setup: 'sob-consulta',
+                implHours: '120:00:00',
+                implPrice: 'sob-consulta',
+                gpHours: '24:00:00',
+                gpPrice: 'sob-consulta',
+                mrr: 'sob-consulta'
+            },
+            'SOP DistMed': {
+                setup: 'sob-consulta',
+                implHours: '120:00:00',
+                implPrice: 'sob-consulta',
+                gpHours: '24:00:00',
+                gpPrice: 'sob-consulta',
+                mrr: 'sob-consulta'
+            },
+            'SOP ImpEx - Exportação': {
                 setup: 'R$ 10.000,00',
                 implHours: '80:00:00',
                 implPrice: 'R$ 16.000,00',
@@ -795,7 +919,7 @@
                 gpPrice: 'R$ 3.200,00',
                 mrr: 'R$ 4.000,00'
             },
-            'SOP Comércio Exterior - Importação': {
+            'SOP ImpEx - Importação': {
                 setup: 'R$ 10.000,00',
                 implHours: '80:00:00',
                 implPrice: 'R$ 16.000,00',
@@ -819,7 +943,7 @@
                 gpPrice: 'R$ 4.000,00',
                 mrr: 'R$ 3.000,00'
             },
-            'SOP Integrador - Docusign': {
+            'SOP ConLicitação e LicitaSys': {
                 setup: 'R$ 4.000,00',
                 implHours: '8:00:00',
                 implPrice: 'R$ 1.600,00',
@@ -834,6 +958,14 @@
                 gpHours: '8:00:00',
                 gpPrice: 'R$ 1.600,00',
                 mrr: 'R$ 2.000,00'
+            },
+            'SOP HubSoft': {
+                setup: 'R$ 10.000,00',
+                implHours: '40:00:00',
+                implPrice: 'R$ 18.000,00',
+                gpHours: '8:00:00',
+                gpPrice: 'R$ 3.600,00',
+                mrr: 'R$ 3.000,00'
             },
             'SOP Integrador - Transfeera': {
                 setup: 'R$ 5.000,00',
@@ -923,7 +1055,7 @@
         }
 
         // Close popup when clicking outside
-        document.getElementById('popup').addEventListener('click', function(e) {
+        document.getElementById('popup').addEventListener('click', function (e) {
             if (e.target === this) {
                 closePopup();
             }
@@ -972,4 +1104,5 @@
         });
     </script>
 </body>
+
 </html>
