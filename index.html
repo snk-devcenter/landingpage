@@ -730,6 +730,7 @@
                     <p>Fluxo completo, automatização da DI, integração com contratos cambiais, dashboard de follow-up,
                         antidumping, tratamento fiscal e regimes especiais (limitado a <b>10 notas</b> de nacionalização/mês)</p>
                     <a href="#" class="price-link" onclick="openPopup('SOP ImpEx SE - Importação')">Ver Preços</a>
+                    <!-- <a href="#" class="price-link" onclick="openPopupInfo('SOP ImpEx SE - Importação')">Mais Informações</a> -->
                 </div>
                 <div class="module-card">
                     <h4>SOP ImpEx - Importação</h4>
@@ -879,6 +880,19 @@
         </div>
     </div>
 
+    <!-- Popup Info Modal -->
+    <div id="popupInfo" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopupInfo()">&times;</span>
+            <h3 id="popup-title" class="popup-header"></h3>
+            <div id="more-info" class="info">
+                <div class="pricing-item">
+                    <div id="info" class="pricing-value"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Pricing data
         const pricingData = {
@@ -920,7 +934,8 @@
                 implPrice: 'R$ 12.000,00',
                 gpHours: '12:00:00',
                 gpPrice: 'R$ 2.400,00',
-                mrr: 'R$ 1.500,00\n(+ R$ 1.200,00 por pack de 10 NF-e, se necessário)'
+                mrr: 'R$ 1.500,00\n(+ R$ 1.200,00 por pack de 10 NF-e, se necessário)',
+                info: '<h1>Mais Informações</h1>'
             },
             'SOP ImpEx - Exportação': {
                 setup: 'R$ 10.000,00',
@@ -1035,6 +1050,25 @@
                 mrr: 'R$ 3.000,00'
             }
         };
+
+        function openPopupInfo(sopName) {
+            const popup = document.getElementById('popupInfo');
+            const title = document.getElementById('popup-title');
+            const info = document.getElementById('info');
+
+            const data = pricingData[sopName];
+            if (data) {
+                title.textContent = sopName;
+                info.textContent = data.info;
+
+                popup.style.display = 'flex';
+            }
+        }
+
+        function closePopupInfo() {
+            const popup = document.getElementById('popupInfo');
+            popup.style.display = 'none';
+        }
 
         function openPopup(sopName) {
             const popup = document.getElementById('popup');
